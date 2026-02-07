@@ -1,41 +1,41 @@
-import { NavLink, Link } from "react-router-dom"
-import { useContext, useRef, useState } from "react"
-import { SearchContext } from "../Context/SearchContext"
+import { NavLink, Link } from "react-router-dom";
+import { useContext, useRef, useState } from "react";
+import { SearchContext } from "../Context/SearchContext";
 
 const Navbar = () => {
-  const { handleSearch } = useContext(SearchContext)
+  const { handleSearch } = useContext(SearchContext);
 
   // mobile
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [aboutMobile, setAboutMobile] = useState(false)
-  const [productMobile, setProductMobile] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [aboutMobile, setAboutMobile] = useState(false);
+  const [productMobile, setProductMobile] = useState(false);
 
   // desktop
-  const [aboutOpen, setAboutOpen] = useState(false)
-  const [productOpen, setProductOpen] = useState(false)
-  const aboutTimer = useRef(null)
-  const productTimer = useRef(null)
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [productOpen, setProductOpen] = useState(false);
+  const aboutTimer = useRef(null);
+  const productTimer = useRef(null);
 
   const navLinkClass = ({ isActive }) =>
     `block px-4 py-2 text-sm font-semibold ${
       isActive ? "text-green-700" : "text-gray-700 hover:text-green-700"
-    }`
+    }`;
 
   // desktop hover helpers
   const openAbout = () => {
-    clearTimeout(aboutTimer.current)
-    setAboutOpen(true)
-  }
+    clearTimeout(aboutTimer.current);
+    setAboutOpen(true);
+  };
   const closeAbout = () => {
-    aboutTimer.current = setTimeout(() => setAboutOpen(false), 150)
-  }
+    aboutTimer.current = setTimeout(() => setAboutOpen(false), 150);
+  };
   const openProduct = () => {
-    clearTimeout(productTimer.current)
-    setProductOpen(true)
-  }
+    clearTimeout(productTimer.current);
+    setProductOpen(true);
+  };
   const closeProduct = () => {
-    productTimer.current = setTimeout(() => setProductOpen(false), 150)
-  }
+    productTimer.current = setTimeout(() => setProductOpen(false), 150);
+  };
 
   return (
     <header className="w-full shadow-md">
@@ -52,7 +52,6 @@ const Navbar = () => {
       {/* ===== Main Navbar ===== */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img
@@ -62,15 +61,15 @@ const Navbar = () => {
             />
             <div>
               <h1 className="text-lg font-bold text-gray-800">Eco Boiler</h1>
-              <p className="text-xs text-gray-500">
-                Industrial Boiler Systems
-              </p>
+              <p className="text-xs text-gray-500">Industrial Boiler Systems</p>
             </div>
           </Link>
 
           {/* ===== Desktop Menu ===== */}
           <nav className="hidden lg:flex items-center gap-8">
-            <NavLink to="/" className={navLinkClass}>Home</NavLink>
+            <NavLink to="/" className={navLinkClass}>
+              Home
+            </NavLink>
 
             {/* About (desktop) */}
             <div
@@ -87,11 +86,19 @@ const Navbar = () => {
                   onMouseEnter={openAbout}
                   onMouseLeave={closeAbout}
                 >
-                  <Link to="/about" className="block px-4 py-3 hover:bg-green-50">
-                    Company Profile
+                  <Link
+                    to="/about"
+                    className="block px-4 py-3 hover:bg-green-50"
+                  >
+                    <Link to="/company-profile">
+                      Company Profile
+                    </Link>
                   </Link>
-                  <Link to="/about" className="block px-4 py-3 hover:bg-green-50">
-                    Management Team
+                  <Link
+                    to="/about"
+                    className="block px-4 py-3 hover:bg-green-50"
+                  >
+                    <Link to="/management-team" >Management Team</Link>
                   </Link>
                 </div>
               )}
@@ -112,21 +119,24 @@ const Navbar = () => {
                   onMouseEnter={openProduct}
                   onMouseLeave={closeProduct}
                 >
-                  <Link to="/services" className="block px-4 py-3 hover:bg-green-50">
-                    Industrial Steam Boiler
-                  </Link>
-                  <Link to="/services" className="block px-4 py-3 hover:bg-green-50">
-                    Thermal Oil Boiler
-                  </Link>
-                  <Link to="/services" className="block px-4 py-3 hover:bg-green-50">
-                    Hot Water Boiler
+                  <Link
+                    to="/services"
+                    className="block px-4 py-3 hover:bg-green-50"
+                  >
+                    <Link to="/industrial-steam-boiler">
+                      Industrial Steam Boiler
+                    </Link>
                   </Link>
                 </div>
               )}
             </div>
 
-            <NavLink to="/services" className={navLinkClass}>Services</NavLink>
-            <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
+            <NavLink to="/services" className={navLinkClass}>
+              Services
+            </NavLink>
+            <NavLink to="/contact" className={navLinkClass}>
+              Contact
+            </NavLink>
           </nav>
 
           {/* Desktop Right */}
@@ -157,8 +167,11 @@ const Navbar = () => {
         {/* ===== MOBILE MENU ===== */}
         {menuOpen && (
           <div className="lg:hidden border-t bg-white px-4 py-4 space-y-2">
-
-            <NavLink onClick={() => setMenuOpen(false)} to="/" className={navLinkClass}>
+            <NavLink
+              onClick={() => setMenuOpen(false)}
+              to="/"
+              className={navLinkClass}
+            >
               Home
             </NavLink>
 
@@ -171,8 +184,13 @@ const Navbar = () => {
             </button>
             {aboutMobile && (
               <div className="pl-6">
-                <Link to="/about" className="block py-2">Company Profile</Link>
-                <Link to="/about" className="block py-2">Management Team</Link>
+                <Link to="/about" className="block py-2">
+                  <Link to="/company-profile" >Company Profile
+</Link>
+                </Link>
+                <Link to="/about" className="block py-2">
+                  <Link to="/management-team" >Management Team</Link>
+                </Link>
               </div>
             )}
 
@@ -185,16 +203,26 @@ const Navbar = () => {
             </button>
             {productMobile && (
               <div className="pl-6">
-                <Link to="/services" className="block py-2">Industrial Steam Boiler</Link>
-                <Link to="/services" className="block py-2">Thermal Oil Boiler</Link>
-                <Link to="/services" className="block py-2">Hot Water Boiler</Link>
+                <Link to="/services" className="block py-2">
+                  <Link to="/industrial-steam-boiler">
+                    Industrial Steam Boiler
+                  </Link>
+                </Link>
               </div>
             )}
 
-            <NavLink onClick={() => setMenuOpen(false)} to="/services" className={navLinkClass}>
+            <NavLink
+              onClick={() => setMenuOpen(false)}
+              to="/services"
+              className={navLinkClass}
+            >
               Services
             </NavLink>
-            <NavLink onClick={() => setMenuOpen(false)} to="/contact" className={navLinkClass}>
+            <NavLink
+              onClick={() => setMenuOpen(false)}
+              to="/contact"
+              className={navLinkClass}
+            >
               Contact
             </NavLink>
 
@@ -209,7 +237,7 @@ const Navbar = () => {
         )}
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
