@@ -4,7 +4,7 @@ const Contact = () => {
     return (
         <div>
             <h1>
-                Contact
+                Contact Latif
             </h1>
         </div>
     );

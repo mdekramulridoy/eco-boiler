@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "eco-boiler-engineering"
-  }
+    "default": "eco-boiler-engineering",
+    "y": "eco-boiler-and-engineering"
+  },
+  "targets": {},
+  "etags": {}
 }
