@@ -1,182 +1,199 @@
+import React from 'react';
+
 const Contact = () => {
   return (
-    <main className="bg-white">
+    <main className="bg-[#f8fcf9] min-h-screen font-sans">
 
-      {/* ================= PAGE HEADER ================= */}
-      <section className="bg-[#0b0f0e] text-white py-28">
-        <div className="max-w-7xl mx-auto px-6">
-          <span className="inline-block mb-6 px-4 py-1 text-sm tracking-widest uppercase
-                           bg-green-500/10 text-green-400 border border-green-500/30 rounded-full">
-            Contact Us
+      {/* ================= PAGE HEADER (Industrial Dark Green) ================= */}
+      <section className="bg-[#0c2a16] text-white py-32 relative overflow-hidden">
+        {/* Abstract Glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#00ba3e] rounded-full blur-[150px] opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <span className="inline-block mb-6 px-5 py-2 text-xs tracking-[0.3em] uppercase font-bold
+                           bg-[#00ba3e]/10 text-[#00ff73] border border-[#00ba3e]/30 rounded-full">
+            Connect With Engineers
           </span>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
-            Get in Touch
+          <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
+            Let’s Build Your <br />
+            <span className="text-[#00ba3e]">Green Factory</span> Together
           </h1>
 
-          <p className="text-gray-300 max-w-3xl text-lg leading-relaxed">
-            Contact Eco Boiler Solutions Ltd. for industrial boiler inquiries,
-            technical consultation, project discussion, or service support.
+          <p className="text-gray-400 max-w-2xl text-lg md:text-xl leading-relaxed font-medium">
+            Reach out to Eco Boiler and Engineering for technical consultations, 
+            fire tube boiler inquiries, or global project support.
           </p>
         </div>
       </section>
 
-      {/* ================= CONTACT INFO ================= */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-12">
+      {/* ================= CONTACT INFO CARDS ================= */}
+      <section className="py-24 relative z-20 -mt-16">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-8">
 
-          {/* Office Address */}
-          <div className="bg-gray-50 p-10 rounded-xl">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
-              Head Office
-            </h3>
-            <p className="text-gray-600 leading-relaxed text-sm">
-              Eco Boiler Solutions Ltd.<br />
+          {/* Office Card */}
+          <div className="group bg-white p-12 rounded-[2.5rem] shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-[#00ba3e]/30 transition-all duration-500">
+            <div className="w-14 h-14 bg-[#f4fcf6] text-[#00ba3e] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#00ba3e] group-hover:text-white transition-all duration-300 shadow-sm">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Global Headquarters</h3>
+            <p className="text-gray-500 font-medium leading-relaxed">
+              Eco Boiler and Engineering<br />
               Dhaka, Bangladesh
             </p>
           </div>
 
-          {/* Phone */}
-          <div className="bg-gray-50 p-10 rounded-xl">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
-              Phone
-            </h3>
-            <p className="text-gray-600 text-sm">
-              +880 1XXXXXXXXX<br />
-              +880 1XXXXXXXXX
+          {/* Phone Card */}
+          <div className="group bg-white p-12 rounded-[2.5rem] shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-[#00ba3e]/30 transition-all duration-500">
+            <div className="w-14 h-14 bg-[#f4fcf6] text-[#00ba3e] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#00ba3e] group-hover:text-white transition-all duration-300 shadow-sm">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Direct Support</h3>
+            <p className="text-gray-500 font-medium leading-relaxed">
+              +880 1XXX-XXXXXX<br />
+              +880 1XXX-XXXXXX
             </p>
           </div>
 
-          {/* Email */}
-          <div className="bg-gray-50 p-10 rounded-xl">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
-              Email
-            </h3>
-            <p className="text-gray-600 text-sm">
+          {/* Email Card */}
+          <div className="group bg-white p-12 rounded-[2.5rem] shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-[#00ba3e]/30 transition-all duration-500">
+            <div className="w-14 h-14 bg-[#f4fcf6] text-[#00ba3e] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#00ba3e] group-hover:text-white transition-all duration-300 shadow-sm">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Official Inquiries</h3>
+            <p className="text-gray-500 font-medium leading-relaxed">
               info@ecoboiler.com<br />
-              support@ecoboiler.com
+              sales@ecoboiler.com
             </p>
           </div>
 
         </div>
       </section>
 
-      {/* ================= CONTACT FORM ================= */}
-      <section className="bg-gray-50 py-24">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+      {/* ================= CONTACT FORM SECTION ================= */}
+      <section className="pb-32">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-20 items-start">
 
-          {/* Form */}
-          <div className="bg-white p-12 rounded-xl shadow-sm">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
-              Send Us a Message
+          {/* Form Side */}
+          <div className="lg:col-span-3 bg-white p-12 md:p-16 rounded-[3rem] shadow-2xl shadow-green-900/5 border border-gray-50">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-8 tracking-tight">
+              Submit Your <span className="text-[#00ba3e]">Inquiry</span>
             </h2>
 
-            <form className="space-y-6">
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 rounded-md px-4 py-3
-                             focus:outline-none focus:border-green-600"
-                  placeholder="Your full name"
-                />
+            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
+                  <input
+                    type="text"
+                    className="w-full bg-gray-50 border-none rounded-2xl px-6 py-4 text-gray-800 font-medium focus:ring-2 focus:ring-[#00ba3e]/30 transition-all"
+                    placeholder="e.g. John Doe"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Company Name</label>
+                  <input
+                    type="text"
+                    className="w-full bg-gray-50 border-none rounded-2xl px-6 py-4 text-gray-800 font-medium focus:ring-2 focus:ring-[#00ba3e]/30 transition-all"
+                    placeholder="Your Organization"
+                  />
+                </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 rounded-md px-4 py-3
-                             focus:outline-none focus:border-green-600"
-                  placeholder="Company / Organization"
-                />
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Email Address</label>
+                  <input
+                    type="email"
+                    className="w-full bg-gray-50 border-none rounded-2xl px-6 py-4 text-gray-800 font-medium focus:ring-2 focus:ring-[#00ba3e]/30 transition-all"
+                    placeholder="email@company.com"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Phone Number</label>
+                  <input
+                    type="text"
+                    className="w-full bg-gray-50 border-none rounded-2xl px-6 py-4 text-gray-800 font-medium focus:ring-2 focus:ring-[#00ba3e]/30 transition-all"
+                    placeholder="+880..."
+                  />
+                </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  className="w-full border border-gray-300 rounded-md px-4 py-3
-                             focus:outline-none focus:border-green-600"
-                  placeholder="example@email.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-gray-300 rounded-md px-4 py-3
-                             focus:outline-none focus:border-green-600"
-                  placeholder="+880..."
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Message
-                </label>
+              <div className="space-y-3">
+                <label className="text-[11px] font-black uppercase tracking-widest text-gray-400 ml-1">Project Details / Requirement</label>
                 <textarea
-                  rows="5"
-                  className="w-full border border-gray-300 rounded-md px-4 py-3
-                             focus:outline-none focus:border-green-600"
-                  placeholder="Describe your industrial boiler requirement..."
+                  rows="6"
+                  className="w-full bg-gray-50 border-none rounded-3xl px-6 py-5 text-gray-800 font-medium focus:ring-2 focus:ring-[#00ba3e]/30 transition-all resize-none"
+                  placeholder="Describe your industrial boiler requirement or specific technical support needed..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-green-700 hover:bg-green-800 text-white
-                           font-semibold py-3 rounded-md transition"
+                className="w-full py-5 bg-[#00ba3e] hover:bg-[#00ff73] text-white hover:text-[#0c2a16]
+                           font-black rounded-2xl shadow-xl shadow-[#00ba3e]/20 transition-all duration-300
+                           transform active:scale-[0.98] text-lg uppercase tracking-widest"
               >
-                Submit Inquiry
+                Send Inquiry to Engineering Team
               </button>
             </form>
           </div>
 
-          {/* Office Hours / Note */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              Office Hours & Support
-            </h3>
+          {/* Info Side */}
+          <div className="lg:col-span-2 space-y-12">
+            <div>
+              <h3 className="text-3xl font-black text-gray-900 mb-6 tracking-tight">
+                Global Operations & <br /> <span className="text-[#00ba3e]">Support Hours</span>
+              </h3>
+              <p className="text-gray-500 font-medium leading-relaxed mb-8 text-lg">
+                Our specialized engineering team is available for on-site consultations 
+                and remote technical support to ensure your plant runs at peak efficiency.
+              </p>
 
-            <p className="text-gray-600 leading-relaxed mb-4">
-              Our engineering and support team is available to assist you with
-              industrial boiler inquiries, project planning, and technical
-              consultations.
-            </p>
+              <div className="space-y-6">
+                <div className="flex gap-4 items-start">
+                  <div className="w-1.5 h-1.5 bg-[#00ba3e] rounded-full mt-2.5"></div>
+                  <div className="flex-1">
+                    <p className="text-gray-900 font-bold">Standard Operations</p>
+                    <p className="text-sm text-gray-500 font-medium">Sat – Thu: 09:00 AM – 06:00 PM</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <div className="w-1.5 h-1.5 bg-[#00ba3e] rounded-full mt-2.5"></div>
+                  <div className="flex-1">
+                    <p className="text-gray-900 font-bold">Maintenance Window</p>
+                    <p className="text-sm text-gray-500 font-medium">Available 24/7 for Contracted Clients</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <ul className="text-gray-600 text-sm space-y-3">
-              <li>• Saturday – Thursday: 9:00 AM – 6:00 PM</li>
-              <li>• Friday: Closed</li>
-              <li>• Emergency technical support available upon request</li>
-            </ul>
+            <div className="p-10 bg-[#0c2a16] rounded-[3rem] text-white relative overflow-hidden">
+               <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#00ba3e] rounded-full blur-[80px] opacity-20"></div>
+               <h4 className="text-xl font-bold mb-4 relative z-10">Urgent Support?</h4>
+               <p className="text-gray-400 text-sm mb-6 relative z-10">
+                 For critical boiler breakdowns or emergency safety concerns, please use our priority helpline.
+               </p>
+               <a href="tel:+8801XXXXXXXXX" className="text-[#00ff73] font-black text-xl hover:underline relative z-10">
+                 +880 1XXX-XXXXXX
+               </a>
+            </div>
           </div>
 
         </div>
       </section>
 
-      {/* ================= FINAL CTA ================= */}
-      <section className="bg-green-700 py-20 text-center text-white">
-        <h2 className="text-3xl font-bold mb-5">
-          Let’s Discuss Your Industrial Boiler Requirement
-        </h2>
-        <p className="mb-8 max-w-2xl mx-auto text-lg">
-          Reach out to Eco Boiler Solutions Ltd. and connect with our
-          engineering team for reliable industrial boiler solutions.
-        </p>
+      {/* ================= FINAL BRANDING BAR ================= */}
+      <section className="bg-white py-16 border-t border-gray-100 text-center">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-[10px] font-black text-gray-300 uppercase tracking-[0.5em]">
+            Eco Boiler and Engineering | Precision Fire Tube Technology
+          </p>
+        </div>
       </section>
 
     </main>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

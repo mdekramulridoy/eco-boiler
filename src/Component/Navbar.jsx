@@ -1,240 +1,133 @@
 import { NavLink, Link } from "react-router-dom";
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { SearchContext } from "../Context/SearchContext";
 
 const Navbar = () => {
   const { handleSearch } = useContext(SearchContext);
 
-  // mobile
+  // Mobile Menu State
   const [menuOpen, setMenuOpen] = useState(false);
-  const [aboutMobile, setAboutMobile] = useState(false);
-  const [productMobile, setProductMobile] = useState(false);
 
-  // desktop
-  const [aboutOpen, setAboutOpen] = useState(false);
-  const [productOpen, setProductOpen] = useState(false);
-  const aboutTimer = useRef(null);
-  const productTimer = useRef(null);
-
+  // Active Link Styling
   const navLinkClass = ({ isActive }) =>
-    `block px-4 py-2 text-sm font-semibold ${
-      isActive ? "text-green-700" : "text-gray-700 hover:text-green-700"
+    `relative px-1 py-2 text-sm font-bold tracking-wide transition-all duration-300 ${
+      isActive 
+        ? "text-[#00ba3e] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#00ba3e]" 
+        : "text-gray-700 hover:text-[#00ba3e]"
     }`;
 
-  // desktop hover helpers
-  const openAbout = () => {
-    clearTimeout(aboutTimer.current);
-    setAboutOpen(true);
-  };
-  const closeAbout = () => {
-    aboutTimer.current = setTimeout(() => setAboutOpen(false), 150);
-  };
-  const openProduct = () => {
-    clearTimeout(productTimer.current);
-    setProductOpen(true);
-  };
-  const closeProduct = () => {
-    productTimer.current = setTimeout(() => setProductOpen(false), 150);
-  };
-
   return (
-    <header className="w-full shadow-md">
-      {/* ===== Top Bar ===== */}
-      <div className="bg-green-800 text-white text-xs">
-        <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between">
-          <span>Eco Boiler Solutions Ltd.</span>
-          <span className="hidden sm:block">
-            Industrial & Energy Efficient Boiler Manufacturer
+    <header className="w-full sticky top-0 z-[100] bg-white shadow-sm">
+      {/* ===== Top Bar (Eco Dark Theme) ===== */}
+      <div className="bg-[#0c2a16] text-white text-[11px] font-medium tracking-wider uppercase">
+        <div className="max-w-7xl mx-auto px-6 py-2.5 flex justify-between items-center">
+          <div className="flex gap-4">
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 bg-[#00ba3e] rounded-full animate-pulse"></span>
+              Eco Boiler and Engineering
+            </span>
+          </div>
+          <span className="hidden sm:block opacity-80">
+            Advanced & Sustainable Fire Tube Boiler Solutions
           </span>
         </div>
       </div>
 
       {/* ===== Main Navbar ===== */}
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img
-              src="https://i.ibb.co.com/ksmx1vbp/Eco-Boiler-circle.png"
-              alt="Eco Boiler Logo"
-              className="w-11 h-11"
-            />
-            <div>
-              <h1 className="text-lg font-bold text-gray-800">Eco Boiler</h1>
-              <p className="text-xs text-gray-500">Industrial Boiler Systems</p>
+      <div className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          
+          {/* Logo Section */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-12 h-12 bg-[#f4fcf6] rounded-xl flex items-center justify-center border border-gray-100 group-hover:border-[#00ba3e]/30 transition-all">
+              <img
+                src="https://i.ibb.co.com/ksmx1vbp/Eco-Boiler-circle.png"
+                alt="Eco Boiler Logo"
+                className="w-10 h-10 object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <h1 className="text-xl font-black text-gray-900 leading-none tracking-tight">
+                ECO <span className="text-[#00ba3e]">BOILER</span>
+              </h1>
+              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">
+                Engineering Excellence
+              </p>
             </div>
           </Link>
 
-          {/* ===== Desktop Menu ===== */}
+          {/* ===== Desktop Navigation ===== */}
           <nav className="hidden lg:flex items-center gap-8">
-            <NavLink to="/" className={navLinkClass}>
-              Home
-            </NavLink>
-
-            {/* About (desktop) */}
-            <div
-              className="relative"
-              onMouseEnter={openAbout}
-              onMouseLeave={closeAbout}
-            >
-              <button className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-green-700">
-                About Us <span className="text-xs">▼</span>
-              </button>
-              {aboutOpen && (
-                <div
-                  className="absolute top-full left-0 mt-2 w-56 bg-white border shadow-lg rounded-md z-50"
-                  onMouseEnter={openAbout}
-                  onMouseLeave={closeAbout}
-                >
-                  <Link
-                    to="/about"
-                    className="block px-4 py-3 hover:bg-green-50"
-                  >
-                    <Link to="/company-profile">
-                      Company Profile
-                    </Link>
-                  </Link>
-                  <Link
-                    to="/about"
-                    className="block px-4 py-3 hover:bg-green-50"
-                  >
-                    <Link to="/management-team" >Management Team</Link>
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Products (desktop) */}
-            <div
-              className="relative"
-              onMouseEnter={openProduct}
-              onMouseLeave={closeProduct}
-            >
-              <button className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-green-700">
-                Products <span className="text-xs">▼</span>
-              </button>
-              {productOpen && (
-                <div
-                  className="absolute top-full left-0 mt-2 w-64 bg-white border shadow-lg rounded-md z-50"
-                  onMouseEnter={openProduct}
-                  onMouseLeave={closeProduct}
-                >
-                  <Link
-                    to="/services"
-                    className="block px-4 py-3 hover:bg-green-50"
-                  >
-                    <Link to="/industrial-steam-boiler">
-                      Industrial Steam Boiler
-                    </Link>
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <NavLink to="/services" className={navLinkClass}>
-              Services
-            </NavLink>
-            <NavLink to="/contact" className={navLinkClass}>
-              Contact
-            </NavLink>
+            <NavLink to="/" className={navLinkClass}>Home</NavLink>
+            <NavLink to="/about" className={navLinkClass}>About Us</NavLink>
+            <NavLink to="/products" className={navLinkClass}>Products</NavLink>
+            <NavLink to="/services" className={navLinkClass}>Services</NavLink>
+            <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
           </nav>
 
-          {/* Desktop Right */}
-          <div className="hidden lg:flex items-center gap-4">
-            <input
-              type="text"
-              placeholder="Search products, services..."
-              className="w-64 h-9 border border-gray-300 rounded-md px-3 text-sm"
-              onChange={(e) => handleSearch(e.target.value)}
-            />
+          {/* ===== Desktop Actions ===== */}
+          <div className="hidden lg:flex items-center gap-6">
+            {/* Search Box */}
+            <div className="relative group">
+              <input
+                type="text"
+                placeholder="Search solutions..."
+                className="w-48 h-10 bg-gray-50 border border-gray-100 rounded-xl px-4 pl-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#00ba3e]/20 focus:border-[#00ba3e] transition-all w-full group-hover:w-64"
+                onChange={(e) => handleSearch(e.target.value)}
+              />
+              <svg className="w-4 h-4 absolute left-3.5 top-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+
+            {/* CTA Button */}
             <Link
               to="/contact"
-              className="h-9 px-5 flex items-center rounded-md bg-green-700 text-white text-sm font-semibold hover:bg-green-800"
+              className="h-11 px-7 flex items-center rounded-xl bg-[#00ba3e] text-white text-sm font-bold hover:bg-[#00ff73] hover:text-[#0c2a16] transition-all duration-300 shadow-lg shadow-[#00ba3e]/20 transform active:scale-95"
             >
               Get a Quote
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden text-2xl"
+            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg bg-gray-50 text-gray-800 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuOpen ? "✕" : "☰"}
+            {menuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" /></svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+            )}
           </button>
         </div>
 
-        {/* ===== MOBILE MENU ===== */}
-        {menuOpen && (
-          <div className="lg:hidden border-t bg-white px-4 py-4 space-y-2">
-            <NavLink
-              onClick={() => setMenuOpen(false)}
-              to="/"
-              className={navLinkClass}
-            >
-              Home
-            </NavLink>
-
-            {/* About mobile */}
-            <button
-              onClick={() => setAboutMobile(!aboutMobile)}
-              className="w-full flex justify-between px-4 py-2 font-semibold"
-            >
-              About Us <span>{aboutMobile ? "−" : "+"}</span>
-            </button>
-            {aboutMobile && (
-              <div className="pl-6">
-                <Link to="/about" className="block py-2">
-                  <Link to="/company-profile" >Company Profile
-</Link>
-                </Link>
-                <Link to="/about" className="block py-2">
-                  <Link to="/management-team" >Management Team</Link>
-                </Link>
-              </div>
-            )}
-
-            {/* Products mobile */}
-            <button
-              onClick={() => setProductMobile(!productMobile)}
-              className="w-full flex justify-between px-4 py-2 font-semibold"
-            >
-              Products <span>{productMobile ? "−" : "+"}</span>
-            </button>
-            {productMobile && (
-              <div className="pl-6">
-                <Link to="/services" className="block py-2">
-                  <Link to="/industrial-steam-boiler">
-                    Industrial Steam Boiler
-                  </Link>
-                </Link>
-              </div>
-            )}
-
-            <NavLink
-              onClick={() => setMenuOpen(false)}
-              to="/services"
-              className={navLinkClass}
-            >
-              Services
-            </NavLink>
-            <NavLink
-              onClick={() => setMenuOpen(false)}
-              to="/contact"
-              className={navLinkClass}
-            >
-              Contact
-            </NavLink>
-
-            {/* Mobile Search */}
-            <input
-              type="text"
-              placeholder="Search website..."
-              className="w-full mt-3 border border-gray-300 rounded-md px-3 py-2 text-sm"
-              onChange={(e) => handleSearch(e.target.value)}
-            />
+        {/* ===== MOBILE MENU (Side Drawer Style) ===== */}
+        <div className={`lg:hidden absolute top-20 left-0 w-full bg-white border-t border-gray-100 transition-all duration-300 shadow-2xl overflow-hidden ${menuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="px-6 py-8 space-y-4">
+            <NavLink onClick={() => setMenuOpen(false)} to="/" className="block text-lg font-bold text-gray-800">Home</NavLink>
+            <NavLink onClick={() => setMenuOpen(false)} to="/about" className="block text-lg font-bold text-gray-800">About Us</NavLink>
+            <NavLink onClick={() => setMenuOpen(false)} to="/products" className="block text-lg font-bold text-gray-800">Products</NavLink>
+            <NavLink onClick={() => setMenuOpen(false)} to="/services" className="block text-lg font-bold text-gray-800">Services</NavLink>
+            <NavLink onClick={() => setMenuOpen(false)} to="/contact" className="block text-lg font-bold text-gray-800">Contact</NavLink>
+            
+            <div className="pt-6 border-t border-gray-100">
+               <input
+                type="text"
+                placeholder="Search..."
+                className="w-full h-12 bg-gray-50 border border-gray-100 rounded-xl px-4 text-sm focus:outline-none"
+                onChange={(e) => handleSearch(e.target.value)}
+              />
+              <Link
+                onClick={() => setMenuOpen(false)}
+                to="/contact"
+                className="w-full mt-4 h-12 flex items-center justify-center rounded-xl bg-[#00ba3e] text-white font-bold"
+              >
+                Get a Quote
+              </Link>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
