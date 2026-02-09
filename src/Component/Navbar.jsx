@@ -123,7 +123,7 @@ const Navbar = () => {
                 to="/contact"
                 className="w-full mt-4 h-12 flex items-center justify-center rounded-xl bg-[#00ba3e] text-white font-bold"
               >
-                Get a Quote
+                Get a Quotes
               </Link>
             </div>
           </div>
