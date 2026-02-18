@@ -92,7 +92,7 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
             </div>
-            <button onClick={handleGetQuote} className="bg-[#00ba3e] hover:bg-[#00ff73] text-[#06120a] px-8 py-3.5 rounded-xl font-black text-xs uppercase tracking-widest transition-all shadow-lg">Get a Quote</button>
+            <button onClick={handleGetQuote} className="bg-[#00ba3e] hover:bg-[#00ff73] text-white px-8 py-3.5 rounded-xl font-black text-xs uppercase tracking-widest transition-all shadow-lg">Get a Quote</button>
           </div>
 
           {/* MOBILE MENU BUTTON */}
@@ -153,7 +153,7 @@ const Navbar = () => {
 
               <button
                 onClick={() => { handleGetQuote(); setIsOpen(false); }}
-                className="w-full bg-[#00ba3e] text-[#06120a] py-5 rounded-2xl font-black text-lg shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-transform"
+                className="w-full bg-[#00ba3e] text-white py-5 rounded-2xl font-black text-lg shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-transform"
               >
                 <MessageSquare size={22} />
                 Get a Quote
