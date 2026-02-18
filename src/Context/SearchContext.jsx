@@ -1,43 +1,50 @@
-import { createContext, useState } from "react"
+import { createContext, useState, useContext } from "react"
 
+// Create Context
 export const SearchContext = createContext()
 
+// Professional English Search Data
 const searchData = [
   {
     title: "Eco Boiler Company Profile",
-    description: "Eco Boiler Solutions Limited সম্পর্কে তথ্য",
+    description: "Information about Eco Boiler Solutions Limited",
     path: "/about",
   },
   {
     title: "Industrial Boiler Services",
-    description: "ইন্ডাস্ট্রিয়াল বয়লার ইনস্টলেশন ও মেইনটেন্যান্স",
+    description: "Industrial boiler installation and maintenance services",
     path: "/services",
   },
   {
-    title: "Steam Boiler",
-    description: "উচ্চ ক্ষমতার স্টিম বয়লার সমাধান",
-    path: "/services",
+    title: "Steam Boiler Solutions",
+    description: "High-capacity and efficient steam boiler systems",
+    path: "/products",
   },
   {
     title: "Thermal Oil Boiler",
-    description: "এনার্জি এফিশিয়েন্ট থার্মাল অয়েল বয়লার",
-    path: "/services",
+    description: "Energy-efficient thermal oil boiler technology",
+    path: "/products",
   },
   {
     title: "Contact Eco Boiler",
-    description: "Eco Boiler এর সাথে যোগাযোগ করুন",
+    description: "Get in touch with Eco Boiler engineering team",
     path: "/contact",
   },
+  {
+    title: "Waste Heat Recovery",
+    description: "Industrial HRSG and waste heat recovery units",
+    path: "/products",
+  }
 ]
 
-const SearchProvider = ({ children }) => {
+export const SearchProvider = ({ children }) => {
   const [query, setQuery] = useState("")
   const [results, setResults] = useState([])
 
   const handleSearch = (text) => {
     setQuery(text)
 
-    if (!text) {
+    if (!text.trim()) {
       setResults([])
       return
     }
@@ -64,4 +71,11 @@ const SearchProvider = ({ children }) => {
   )
 }
 
-export default SearchProvider
+
+export const useSearch = () => {
+  const context = useContext(SearchContext);
+  if (!context) {
+    throw new Error("useSearch must be used within a SearchProvider");
+  }
+  return context;
+};
